@@ -8,9 +8,8 @@
 }
 
 body {
-  background-color: #F6D1D8;
+  background: #F6D1D8;
   height: 100vh;
-  overflow: hidden;
   user-select: none;
 }
 
