@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Patrick Hand', cursive;
+}
+
+body {
+  background-color: #F6D1D8;
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+}
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F6D1D8;
+  border-right: 0px solid #D1193E;
+  z-index: 9;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+}
+.heart {
+  position: relative;
+}
+.heart,
+.heart:before,
+.heart:after {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: #D1193E;
+  transform: rotateZ(45deg);
+}
+.heart:before,
+.heart:after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+.heart:before {
+  transform: translateX(-50%);
+  -webkit-animation: animX 1.5s infinite 0.25s;
+          animation: animX 1.5s infinite 0.25s;
+}
+.heart:after {
+  transform: translateY(-50%);
+  -webkit-animation: animY 1.5s infinite;
+          animation: animY 1.5s infinite;
+}
+
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.item {
+  cursor: grab;
+  padding: 60px;
+  position: absolute;
+  touch-action: none;
+  transition: transform 0.5s;
+  max-width: 400px;
+  width: 100%;
+  aspect-ratio: 3/4;
+}
+
+.sliding .item {
+  transition: none;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background: #FAE8EC;
+  color: #D1193E;
+  outline: 5px solid #DA4765;
+  outline-offset: -15px;
+  border-collapse: separate;
+  border-spacing: 15;
+  border-radius: 10px;
+  transition: box-shadow 0.3s;
+  font-size: 24px;
+}
+
+.next .card:before,
+.next .card:after {
+  content: '';
+  display: block;
+  height: 7px;
+  position: absolute;
+  border-radius: 0 0 10px 10px;
+}
+
+.card .cardBorder {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card .cardBorder p {
+  padding: 10px;
+  text-align: justify;
+}
+
+.card .cardBorder img {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.next .card:before {
+  background: #FAE8EC;
+  bottom: -10px;
+  width: calc(100% - 20px);
+}
+
+.next .card:after {
+  background: #FAE8EC;
+  bottom: -20px;
+  width: calc(100% - 40px);
+}
+
+.active {
+  z-index: 2 !important;
+}
+
+.next {
+  z-index: 1 !important;
+}
+
+.active .card {
+  box-shadow: rgba(0, 0, 0, 0) 0px 10px 15px -3px, rgba(0, 0, 0, 0) 0px 4px 6px -2px;
+}
+
+.indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: black;
+  z-index: 10;
+  font-size: 12px;
+  opacity: 0.5;
+  animation: move 1s infinite ease-in-out;
+}
+
+.pageNum {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: black;
+  z-index: 10;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+@keyframes move {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(20%); }
+}
+
+@keyframes animX {
+  0%, 25% {
+    transform: translateX(-50%);
+  }
+  50%, 75% {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes animY {
+  0%, 25% {
+    transform: translateY(-50%);
+  }
+  50%, 75% {
+    transform: translateY(50%);
+  }
+}
