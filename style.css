@@ -9,6 +9,8 @@
 
 body {
   background: #F6D1D8;
+  user-select: none;
+  overflow: hidden;
 }
 
 #loader {
