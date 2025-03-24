@@ -9,8 +9,6 @@
 
 body {
   background: #F6D1D8;
-  height: 100vh;
-  user-select: none;
 }
 
 #loader {
@@ -69,7 +67,7 @@ body {
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  position: relative;
+  overflow: hidden;
 }
 
 .item {
